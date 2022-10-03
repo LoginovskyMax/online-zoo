@@ -23,7 +23,7 @@ activeFooter.forEach(item=>{
     })
 })
 
-// sumText[2].style.color='#FE9013';
+sumText[2].style.color='#FE9013';
 donateRadio.forEach((item,index)=>{
     item.addEventListener('change',()=>{
         sumText.forEach(sum=>{
