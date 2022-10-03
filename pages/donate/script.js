@@ -13,7 +13,6 @@ activeHeader.forEach(item=>{
         item.classList.toggle('focused')
     })
 })
-
 activeFooter[3].classList.add('focused')
 activeFooter.forEach(item=>{
     item.addEventListener("click",()=>{
