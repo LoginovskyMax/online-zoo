@@ -38,6 +38,65 @@ a {
 .header .burger_logo {
   display: none;
 }
+.header .hidden_menu {
+  position: fixed;
+  z-index: 3;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(228, 115, 9, 0.6352941176);
+  display: none;
+  opacity: 0;
+  justify-content: center;
+  align-items: flex-start;
+  transition: 0.7s;
+}
+.header .hidden_menu_list {
+  position: relative;
+  width: 640px;
+  height: 0px;
+  background-color: #E5E5E5;
+  transition: 0.7s;
+  overflow: hidden;
+}
+.header .hidden_menu_list .list_menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  color: #333B41;
+  padding: 15px;
+}
+.header .hidden_menu_list .list_menu .logo_li {
+  position: relative;
+  width: 65px;
+  color: #E47209;
+  text-align: center;
+  border: 1px solid #E47209;
+  font-weight: 400;
+  font-size: 15.2116px;
+  line-height: 120%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.header .hidden_menu_list .list_menu .logo_li img {
+  position: absolute;
+  left: 11px;
+  top: 20px;
+}
+.header .hidden_menu_list .list_menu .active:hover {
+  background-color: #E47209;
+}
+.header .hidden_menu_list .close_btn {
+  color: #E47209;
+  background-color: inherit;
+  border: none;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 25px;
+}
 .header_wrap {
   display: flex;
   justify-content: space-between;
@@ -65,10 +124,6 @@ a {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   cursor: pointer;
-}
-.header_wrap a {
-  text-decoration: none;
-  color: #FFFFFF;
 }
 .header_wrap a:hover {
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);

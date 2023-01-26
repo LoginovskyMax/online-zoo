@@ -14,6 +14,7 @@ activeHeader.forEach(item=>{
     })
 })
 activeFooter[3].classList.add('focused')
+inpNumber.value = 100
 activeFooter.forEach(item=>{
     item.addEventListener("click",()=>{
         activeFooter.forEach(item2=>{
@@ -23,9 +24,9 @@ activeFooter.forEach(item=>{
     })
 })
 
-sumText[2].style.color='#FE9013';
 donateRadio.forEach((item,index)=>{
     item.addEventListener('change',()=>{
+        inpNumber.focus()
         sumText.forEach(sum=>{
             sum.style.color = '#333B41'
         })
@@ -34,7 +35,7 @@ donateRadio.forEach((item,index)=>{
     })
 })
 
-
+inpNumber.focus()
 inpNumber.addEventListener('input',(event)=>{
     if(inpNumber.value.length>4){
         inpNumber.value = inpNumber.value.slice(0,4)
@@ -44,28 +45,43 @@ inpNumber.addEventListener('input',(event)=>{
             item.checked=true;
             sumText.forEach(item=>item.style.color='#333B41')
             sumText[index].style.color='#FE9013';
+        }else{
+            sumText.forEach(item=>item.style.color='#333B41')
+            item.checked=false;
         }
     })
 })
 
-let media = window.matchMedia('(min-width:320px) and (max-width:999px)')
-let media2 = window.matchMedia('(min-width:1000px) and (max-width:1600px)')
-if(media.matches){
-    sumText[5].style.color='#FE9013';
-    donateRadio[5].checked=true
-}
-if(media2.matches){
-    sumText[2].style.color='#FE9013';
-    donateRadio[2].checked=true
-}
-window.addEventListener('resize',()=>{
-    if(media.matches){
-        sumText[5].style.color='#FE9013';
-        donateRadio[5].checked=true
-    }
-    if(media2.matches){
-        sumText.forEach(item=>item.style.color='#333B41')
-        sumText[2].style.color='#FE9013';
-        donateRadio[2].checked=true
-    }
+sumText[5].style.color='#FE9013';
+donateRadio[5].checked=true
+
+let closeBtn = document.querySelector('.close_btn')
+let hideMenu = document.querySelector('.hidden_menu')
+let burger = document.querySelector('.burger_menu')
+let menuList = document.querySelector('.hidden_menu_list')
+closeBtn.addEventListener('click',()=>{
+    hideMenu.style.opacity = 0;
+    menuList.style.height = '0px';
+    setTimeout(()=>{  
+        hideMenu.style.display = 'none'
+    },900)
 })
+burger.addEventListener('click',()=>{
+    activeHeader[10].classList.add('focused')
+    hideMenu.style.display = 'flex';
+    hideMenu.style.opacity = 1;
+    setTimeout(()=>{  
+    menuList.style.height = '329px';
+},100)
+})
+menuList.addEventListener('click',(e)=>{
+    e.stopPropagation()
+})
+hideMenu.addEventListener('click',()=>{
+    hideMenu.style.opacity = 0;
+    menuList.style.height = '0px';
+    setTimeout(()=>{  
+        hideMenu.style.display = 'none'
+    },700)
+})
+
